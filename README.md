@@ -12,6 +12,8 @@ Tecnologias utilizadas:
 - Bootstrap
 - Oracle Banco de Dados
 - IBM Watson (serviço prestado por terceiro)
+- Speech-to-Text (serviço prestado por terceiro)
+- Text-to-Speech (serviço prestado por terceiro)
 
 Grupo Ston:
 
