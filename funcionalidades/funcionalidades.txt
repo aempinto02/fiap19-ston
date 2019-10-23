@@ -11,7 +11,8 @@ Funcionalidades do Sistema Ston:
 - Tornar ou retirar do usuário o status de administrador (apenas administrador pode fazer isso)
 - Validar sugestão (mais que três caracteres e menos que 200)
 - Validar telefone e celular (8 dígitos telefone e 9 celular)
-- A cada pergunta o Speech-to-Text.servlet atualiza a intenção e total de perguntas
+- A cada pergunta o Speech-to-Text.servlet atualiza o número de perguntas na intenção e total de perguntas
+- Atualizar a tabela Estatistica
 - O Speech-to-Text também grava a pergunta que o chatbot não respondeu no BD
 - Ler do Banco de Dados quantas perguntas de cada intenção
 - Mostrar estatísticas das perguntas (calculadas em porcentagem das intenções respondidas e número total)
