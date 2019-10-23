@@ -1,0 +1,21 @@
+Funcionalidades do Sistema Ston:
+
+- Cadastrar usuário no Banco de Dados
+- Fazer login (com diferença de usuário comum e administrador)
+- Sistema redireciona a página em sessão para administrador ou usuário comum
+- Sistema bloqueia usuário comum de acessar página de administrador
+- Receber por microfone ou texto pergunta ao Chatbot
+- Responder a pergunta do usário em áudio ou texto
+- Ler do Banco de Dados os usuários
+- Mostra total de perguntas feitas, de sugestões feitas e tipo de usuário (comum ou administrador)
+- Tornar ou retirar do usuário o status de administrador (apenas administrador pode fazer isso)
+- Validar sugestão (mais que três caracteres e menos que 200)
+- Validar telefone e celular (8 dígitos telefone e 9 celular)
+- A cada pergunta o Speech-to-Text.servlet atualiza a intenção e total de perguntas
+- O Speech-to-Text também grava a pergunta que o chatbot não respondeu no BD
+- Ler do Banco de Dados quantas perguntas de cada intenção
+- Mostrar estatísticas das perguntas (calculadas em porcentagem das intenções respondidas e número total)
+- Gravar/Ler sugestões dos usuários
+- Gravar/Ler as perguntas não respondidas pelo Chatbot
+- Apagar sugestão de usuário (apenas administrador pode fazer isso)
+- Sair da sessão do usuário (logout)

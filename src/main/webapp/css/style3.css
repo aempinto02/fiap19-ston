@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Gugi|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.fonte {
+  font-family: 'Gugi', cursive;
+}
+
+.fonte2 {
+  font-family: 'Roboto', cursive;
+  font-size: 35px;
+}
+
+.fonte1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+
+.fonte-maior {
+  font-size: 25px;
+}
+
+.card-header .btn-link:not(.collapsed) {
+  background: #17a2b8;
+  color: white;
+}

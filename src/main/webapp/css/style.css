@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Gugi|Montserrat');
+
+.fonte {
+  font-family: 'Gugi', cursive;
+}
+
+.fonte1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.altura {
+  height: 200px;
+}
+
+.margem {
+  margin-top: 15px;
+  background-color: #FFFFFF;
+}
+
+.margem1 {
+  margin-bottom: 15px;
+}
+
+.chatbot-index {
+  margin-top: 30px;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../imagens/chatbot-index.jpeg);
+  /* height: 100vh; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.linha {
+  width: 100%;
+  border: 1px solid white;
+}
+
+.marg-pop {
+  margin: 15px 0;
+}
+
+.text-info {
+  background: rgba(255,255,255,0.7);
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.pop {
+  font-size: 25px;
+}
+
+.area-texto {
+  resize: none;
+}
+
+ul {
+	list-style: none;
+}
+
+.sugest {
+	background-color: #17A2B8;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+.sugest p {
+	font-size: 20px;
+}
+
+.sugest h2 {
+	font-size: 25px;
+	color: #FFF;
+}
+
+.fonte-maior {
+	font-size: 20px;
+}
+
+.salvar {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+}

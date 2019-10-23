@@ -1,0 +1,142 @@
+-- GRUPO STON
+
+-- ANDRÉ ESTEVES - RM 82720
+-- HENRIQUE COTO – RM 83850
+-- MARCELO ANDRADE - RM 79837
+-- VINÍCIUS ZANATTA – RM 82174
+
+
+CREATE TABLE estatistica (
+    nr_estatistica       INTEGER NOT NULL,
+    usuario_nm_email     VARCHAR2(50) NOT NULL,
+    nr_aplicacao         INTEGER,
+    nr_atos              INTEGER,
+    nr_contando          INTEGER,
+    nr_curso             INTEGER,
+    nr_erros             INTEGER,
+    nr_exemplos          INTEGER,
+    nr_game              INTEGER,
+    nr_jornadadoheroi    INTEGER,
+    nr_personagens       INTEGER,
+    nr_profissionais     INTEGER,
+    nr_protagonista      INTEGER,
+    nr_quebrandoregra    INTEGER,
+    nr_storytelling      INTEGER,
+    nr_vilao             INTEGER,
+    nr_nenhumaintencao   INTEGER,
+    nr_totalrespostas    INTEGER
+);
+
+ALTER TABLE estatistica ADD CONSTRAINT estatistica_pk PRIMARY KEY ( nr_estatistica );
+
+CREATE TABLE pergunta_nao_respondida (
+    nr_pergunta        INTEGER NOT NULL,
+    usuario_nm_email   VARCHAR2(50) NOT NULL,
+    ds_pergunta        VARCHAR2(1000) NOT NULL
+);
+
+ALTER TABLE pergunta_nao_respondida ADD CONSTRAINT pergunta_pk PRIMARY KEY ( nr_pergunta );
+
+CREATE TABLE sugestao (
+    nr_sugestao        INTEGER NOT NULL,
+    usuario_nm_email   VARCHAR2(50) NOT NULL,
+    ds_sugestao        VARCHAR2(200) NOT NULL,
+    dt_sugestao        DATE NOT NULL
+);
+
+ALTER TABLE sugestao ADD CONSTRAINT sugestao_pk PRIMARY KEY ( nr_sugestao );
+
+CREATE TABLE usuario (
+    nm_email      VARCHAR2(50) NOT NULL,
+    nm_usuario    VARCHAR2(50) NOT NULL,
+    nr_telefone   VARCHAR2(10),
+    nr_celular    VARCHAR2(11),
+    st_admin      CHAR(1) NOT NULL,
+    nm_senha      VARCHAR2(50) NOT NULL
+);
+
+ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( nm_email );
+
+ALTER TABLE estatistica
+    ADD CONSTRAINT estatistica_usuario_fk FOREIGN KEY ( usuario_nm_email )
+        REFERENCES usuario ( nm_email );
+
+ALTER TABLE pergunta_nao_respondida
+    ADD CONSTRAINT usuario_fk FOREIGN KEY ( usuario_nm_email )
+        REFERENCES usuario ( nm_email );
+
+ALTER TABLE sugestao
+    ADD CONSTRAINT usuario_fkv2 FOREIGN KEY ( usuario_nm_email )
+        REFERENCES usuario ( nm_email );
+
+INSERT INTO USUARIO VALUES('aempinto02@gmail.com', 'root', '3501-6354', '96585-4265', '1', 'admin012');
+INSERT INTO USUARIO VALUES('pedro@gmail.com', 'Pedro Almeida', '4192-0932', '99382-4265', '0', 'aoaoaoao');
+INSERT INTO USUARIO VALUES('marcos@hotmail.com', 'Marcos Alcântara', '8123-0956', '98274-0083', '0', 'lalalala');
+INSERT INTO USUARIO VALUES('valeria@yahoo.com', 'Valéria Macoratti', '5974-8993', '90382-1872', '0', 'vivivivi');
+INSERT INTO USUARIO VALUES('joanaver@gmail.com', 'Joana Veranda', '5612-7791', '97822-6651', '0', 'jonjonjon');
+INSERT INTO USUARIO VALUES('ivone_mm@outlook.com', 'Ivone Mambeta', '5512-8804', '99001-2125', '0', 'ivonemam');
+INSERT INTO USUARIO VALUES('edison.s.m.pinto@outlook.com', 'Edison da Silva', '3501-6354', '98781-2322', '0', 'edison2909');
+INSERT INTO USUARIO VALUES('muri99@gmail.com', 'Murielle Ambina', '5532-7745', '97742-8791', '0', 'mumumumu');
+INSERT INTO USUARIO VALUES('shakespeare@yahoo.com', 'Polonio Armorindo', '5911-7751', '90125-9337', '0', 'polonim');
+INSERT INTO USUARIO VALUES('samadhi@hotmail.com', 'Osho Rajneesh', '3407-4415', '95006-4928', '0', 'sabedoria');
+INSERT INTO USUARIO VALUES('futebol87@yahoo.com', 'Lauro Versador', '6799-4102', '97172-0908', '0', 'limpinho');
+INSERT INTO USUARIO VALUES('melvis@bol.com.br', 'Sálvio Amoroso', '5488-2877', '94132-0405', '0', 'pamonhaazul');
+INSERT INTO USUARIO VALUES('ever2000@uol.com.br', 'Evair Ervário', '4100-4419', '98982-4422', '0', 'errinhopodre');
+INSERT INTO USUARIO VALUES('miranda@gmail.com', 'Miranda Fedida', '5255-5589', '97175-0108', '0', 'saladademorcego');
+INSERT INTO USUARIO VALUES('lambronina@outlook.com', 'Ana Lambronina', '5911-7751', '90988-1553', '0', 'lindoneia');
+INSERT INTO USUARIO VALUES('vivendinha@yahoo.com', 'Alvara Galvão', '5712-9889', '98234-4396', '0', 'catupirina');
+INSERT INTO USUARIO VALUES('alcantara@yahoo.com', 'Vascolina Larienga', '5677-8813', '98214-4411', '0', 'linfoma');
+
+INSERT INTO SUGESTAO VALUES(1, 'aempinto02@gmail.com', 'TESTE do usuário root para uma sugestão que deve aparecer na página do administrador', '03/10/2019');
+INSERT INTO SUGESTAO VALUES(2, 'pedro@gmail.com', 'O site poderia mudar de cor e estilo', '09/09/2019');
+INSERT INTO SUGESTAO VALUES(3, 'marcos@hotmail.com', 'O site tem problemas de segurança, fiz um SQL Injection', '21/09/2019');
+INSERT INTO SUGESTAO VALUES(4, 'ivone_mm@outlook.com', 'Site razoável, mas poderia mudar a cor e melhorar o chatbot', '15/09/2019');
+INSERT INTO SUGESTAO VALUES(5, 'ivone_mm@outlook.com', 'Gostei do tema, porém sinto que o site explorou muito pouco', '16/09/2019');
+INSERT INTO SUGESTAO VALUES(6, 'ivone_mm@outlook.com', 'A disposição e cores do chatbot não se liga com o site', '18/09/2019');
+INSERT INTO SUGESTAO VALUES(7, 'muri99@gmail.com', 'Esse site é muito ruim, chatbot muito impreciso!', '28/09/2019');
+INSERT INTO SUGESTAO VALUES(8, 'muri99@gmail.com', 'O conteúdo do site poderia explorar mais o Storytelling', '28/09/2019');
+INSERT INTO SUGESTAO VALUES(9, 'shakespeare@yahoo.com', 'Poderia se alterar a cor do site', '01/10/2019');
+INSERT INTO SUGESTAO VALUES(10, 'futebol87@yahoo.com', 'O cadastro poderia ter mais campos significativos', '23/09/2019');
+INSERT INTO SUGESTAO VALUES(11, 'futebol87@yahoo.com', 'O sistema de login pode usar uma melhor autenticação', '19/09/2019');
+INSERT INTO SUGESTAO VALUES(12, 'melvis@bol.com.br', 'Por favor melhorar a acurácia do seu sistema de chatbot', '02/10/2019');
+INSERT INTO SUGESTAO VALUES(13, 'ever2000@uol.com.br', 'O visual do site pode ser repensado para uma próxima vez', '16/9/2019');
+INSERT INTO SUGESTAO VALUES(14, 'alcantara@yahoo.com', 'Melhorar a captura de áudio do sistema', '15/09/2019');
+INSERT INTO SUGESTAO VALUES(15, 'alcantara@yahoo.com', 'A descrição do site está pobre', '20/09/2019');
+INSERT INTO SUGESTAO VALUES(16, 'alcantara@yahoo.com', 'O chatbot pode ser melhorado, tem respostas erradas', '24/09/2019');
+INSERT INTO SUGESTAO VALUES(17, 'alcantara@yahoo.com', 'Use uma cor diferent de site', '29/09/2019');
+
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(1, 'aempinto02@gmail.com', 'O que é um administrador de empresas?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(2, 'pedro@gmail.com', 'Qual a melhor empresa do mundo?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(3, 'marcos@hotmail.com', 'Onde se esconde o tesouro?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(4, 'ivone_mm@outlook.com', 'Onde posso comprar gatos?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(5, 'ivone_mm@outlook.com', 'Aonde posso ir para comer?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(6, 'ivone_mm@outlook.com', 'Posso vencer minha timidez?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(7, 'muri99@gmail.com', 'Como é o céu?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(8, 'muri99@gmail.com', 'Onde moram os deuses?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(9, 'shakespeare@yahoo.com', 'Quem foi Machado de Assis?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(10, 'futebol87@yahoo.com', 'Onde ocorreu a maior guerra do mundo?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(11, 'futebol87@yahoo.com', 'Quem é o rei do futebol?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(12, 'melvis@bol.com.br', 'Como melhorar meu sono?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(13, 'ever2000@uol.com.br', 'Qual o maior rio do mundo?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(14, 'alcantara@yahoo.com', 'Qual o valor do sal na saúde?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(15, 'alcantara@yahoo.com', 'Como viver melhor?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(16, 'alcantara@yahoo.com', 'Qual história mais se vende?');
+INSERT INTO PERGUNTA_NAO_RESPONDIDA VALUES(17, 'alcantara@yahoo.com', 'Onde vende paçoca?');
+
+INSERT INTO ESTATISTICA VALUES(1, 'aempinto02@gmail.com', 1, 2, 1, 0, 1, 2, 0, 0, 0, 0, 2, 0, 0, 3, 1, 13);
+INSERT INTO ESTATISTICA VALUES(2, 'pedro@gmail.com', 2, 0, 0, 3, 0, 0, 0, 1, 0, 6, 0, 0, 1, 0, 1, 14);
+INSERT INTO ESTATISTICA VALUES(3, 'marcos@hotmail.com', 0, 1, 1, 2, 4, 0, 0, 0, 0, 1, 0, 2, 1, 0, 1, 13);
+INSERT INTO ESTATISTICA VALUES(4, 'valeria@yahoo.com', 0, 1, 0, 1, 0, 0, 0, 1, 2, 0, 0, 3, 2, 0, 0, 10);
+INSERT INTO ESTATISTICA VALUES(5, 'joanaver@gmail.com', 0, 1, 0, 1, 3, 2, 0, 1, 0, 1, 2, 1, 0, 3, 0, 15);
+INSERT INTO ESTATISTICA VALUES(6, 'ivone_mm@outlook.com', 0, 0, 0, 3, 2, 1, 0, 1, 0, 0, 2, 1, 0, 2, 3, 15);
+INSERT INTO ESTATISTICA VALUES(7, 'edison.s.m.pinto@outlook.com', 0, 0, 1, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 4, 0, 15);
+INSERT INTO ESTATISTICA VALUES(8, 'muri99@gmail.com', 1, 2, 1, 1, 0, 3, 0, 2, 0, 2, 1, 0, 3, 2, 2, 20);
+INSERT INTO ESTATISTICA VALUES(9, 'shakespeare@yahoo.com', 2, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 3, 1, 12);
+INSERT INTO ESTATISTICA VALUES(10, 'samadhi@hotmail.com', 0, 2, 2, 1, 3, 0, 0, 4, 0, 0, 0, 1, 1, 2, 0, 16);
+INSERT INTO ESTATISTICA VALUES(11, 'futebol87@yahoo.com', 2, 2, 0, 3, 2, 0, 3, 0, 0, 4, 0, 1, 3, 0, 2, 22);
+INSERT INTO ESTATISTICA VALUES(12, 'melvis@bol.com.br', 0, 1, 0, 1, 2, 3, 0, 3, 0, 0, 2, 1, 1, 2, 1, 17);
+INSERT INTO ESTATISTICA VALUES(13, 'ever2000@uol.com.br', 0, 1, 1, 0, 2, 1, 0, 3, 0, 3, 1, 1, 0, 2, 1, 16);
+INSERT INTO ESTATISTICA VALUES(14, 'miranda@gmail.com', 2, 0, 0, 3, 3, 1, 0, 1, 0, 2, 0, 3, 1, 0, 0, 15);
+INSERT INTO ESTATISTICA VALUES(15, 'lambronina@outlook.com', 0, 1, 1, 2, 4, 0, 0, 0, 0, 1, 0, 2, 1, 0, 0, 12);
+INSERT INTO ESTATISTICA VALUES(16, 'vivendinha@yahoo.com', 1, 0, 1, 2, 3, 0, 3, 0, 1, 1, 0, 2, 1, 0, 0, 15);
+INSERT INTO ESTATISTICA VALUES(17, 'alcantara@yahoo.com', 3, 0, 0, 2, 4, 0, 0, 1, 0, 1, 0, 2, 0, 0, 4, 17);
