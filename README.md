@@ -1,0 +1,1 @@
+No Chatbot on Storytelling há dois níveis de usuário -> Usuário e Administrador. Para ser admin peça que um admin torne seu usuário para este status. O sistema foi desenvolvido para suportar o Chatbot sobre o tema de Storytelling. Bom uso!
